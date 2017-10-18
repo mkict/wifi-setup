@@ -29,7 +29,7 @@ $ sudo apt-get install xrdp
 $ sudo apt-get install nodejs npm
 ```
 
-First, clone this repo and download its dependencies from npm:
+Second, clone this repo and download its dependencies from npm:
 
 ```
 $ git clone git@github.com:davidflanagan/wifi-setup.git
