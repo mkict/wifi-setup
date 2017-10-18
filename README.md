@@ -21,6 +21,14 @@ configure and run this server.
 
 ### Step 0: clone and install
 
+First, update your raspberry pi and install xrdp,nodejs,npm
+```
+$ sudo apt-get update
+$ sudo apt-get upgrade
+$ sudo apt-get install xrdp
+$ sudo apt-get install nodejs npm
+```
+
 First, clone this repo and download its dependencies from npm:
 
 ```
@@ -61,7 +69,7 @@ DAEMON_CONF="/etc/hostapd/hostapd.conf"
 DHCPD_ENABLED="no"
 ```
 
-- Copy `config/udhcpd.conf` to `/etc/udhcp.conf`.
+- Copy `config/udhcpd.conf` to `/etc/udhcpd.conf`.
 
 ### Step 3: set up the other services you want your device to run
 
@@ -90,6 +98,16 @@ the service with systemd:
 ```
 $ sudo cp config/wifi-setup.service /lib/systemd/system
 $ sudo vi /lib/systemd/system/wifi-setup.service # edit paths as needed
+```
+
+You can find nodejs path by using
+```` 
+dpkg -L nodejs 
+````
+In this project it located in /usr/bin/nodejs
+
+To make it run on startup you have to enable systemctl
+```
 $ sudo systemctl enable wifi-setup
 ```
 
